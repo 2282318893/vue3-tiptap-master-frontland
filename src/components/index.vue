@@ -82,4 +82,15 @@ const editor = useEditor({
 onBeforeUnmount(() => {
 	editor.value?.destroy();
 });
+
+// 监听content变化
+import { watch } from "vue";
+
+// Watch for changes in the editor content
+watch(() => editor.value?.getHTML(), (newContent, oldContent) => {
+	//@watch 获取文本内容以输出
+  console.log("Editor content changed:");
+  console.log("Old content:", oldContent);
+  console.log("New content:", newContent);
+});
 </script>
