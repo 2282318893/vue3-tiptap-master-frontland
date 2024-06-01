@@ -9,6 +9,9 @@
 		</div>
 		<!-- NodeViewContent将可编辑内容添加到节点视图中 -->
 		<pre><code><node-view-content /></code></pre>
+		<div class = "runButton">
+			<el-button @click="running">run</el-button>
+		</div>
 	</node-view-wrapper>
 </template>
 
@@ -27,12 +30,17 @@ const selectedLanguage = computed({
 		props.updateAttributes({ language });
 	}
 });
+
+const running = () => {
+	//@watch 根据不同语言类型实现代码 selectedLanguage.value当前语言类型
+	console.log(selectedLanguage.value)
+}
 </script>
 
 <style lang="scss" scoped>
 .code-block {
 	border: 1px solid #eee;
-	background-color: #272c35;
+	background-color: #000;
 	border-radius: 5px;
 	color: #fff;
 	padding: 10px 20px;
@@ -42,12 +50,17 @@ const selectedLanguage = computed({
 			width: 100px;
 		}
 		::v-deep .ant-select-selector {
-			background-color: #272c35;
-			color: #fff;
+			background-color: #fff;
+			color: #000;
 		}
 		::v-deep .ant-select-arrow {
-			color: #fff;
+			color: #000;
 		}
 	}
+}
+
+.runButton{
+	display: flex;
+	justify-content: flex-end;
 }
 </style>

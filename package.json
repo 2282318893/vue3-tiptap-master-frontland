@@ -31,10 +31,14 @@
     "@tiptap/vue-3": "^2.2.1",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "ant-design-vue": "^4.1.2",
+    "axios": "^1.7.2",
+    "element-plus": "^2.7.3",
     "lowlight": "^2.7.0",
+    "pinia": "^2.1.7",
     "pnpm": "^8.15.4",
     "sass": "^1.71.1",
-    "vue": "^3.3.8"
+    "vue": "^3.3.8",
+    "vue-router": "^4.3.2"
   },
   "keywords": [
     "vue3-tiptap",
@@ -44,6 +48,7 @@
   ],
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "openapi-typescript-codegen": "^0.29.0",
     "prettier": "3.2.5",
     "vite": "^5.1.6"
   }
