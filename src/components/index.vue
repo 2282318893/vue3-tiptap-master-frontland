@@ -1,16 +1,23 @@
 <template>
+	
 	<div v-if="editor" class="editor" :class="[isFullScreen ? 'editor--fullscreen' : '']">
 		<MenuButtons :editor="editor" />
 		<editor-content class="editor-code" :editor="editor" />
 	</div>
+	<foldMenu :menu = "menu"></foldMenu>
 </template>
 
 <script setup>
+
+	//导入侧边栏
+	import foldMenu from "./component/extensions/foldMenu.vue";
+
 	import MenuButtons from "./component/menu-buttons/index.vue";
 	import {
 		onBeforeUnmount,
 		ref,
-		provide
+		provide,
+		reactive
 	} from "vue";
 
 	import Highlight from "@tiptap/extension-highlight";
@@ -105,10 +112,23 @@
 		useWordcountStore
 	} from "@/store/wordcount";
 
+	import usefatherAndSon from "@/hooks/usefatherAndSon"
+
 	const wordCount = useWordcountStore()
+	
+	let menu = ref([])
 
 	// Watch for changes in the editor content
 	watch(() => editor.value?.getHTML(), (newContent, oldContent) => {
+		computeWord(newContent)
+		// @watch 学一下正则 /<h.*>.*</h.>/g这个报错
+		let temp = [...newContent.matchAll(/<h[1-6][^>]*>.*?<\/h[1-6]>/gi)]
+		console.log(temp)
+		menu.value = usefatherAndSon(temp ? temp : [])
+		console.log("&&&&",menu.value)
+	});
+
+	const computeWord = (newContent) => {
 		//@watch 获取文本内容以输出
 		console.log(newContent)
 
@@ -128,6 +148,5 @@
 		// console.log(`文字数量: ${textLength}`);
 
 		wordCount.wordCount = textLength
-	});
-
+	}
 </script>

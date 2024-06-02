@@ -1,27 +1,15 @@
 <template>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <div class='prebasic'>
-            <el-menu-item index="1">Processing Center</el-menu-item>
-            <el-sub-menu index="2">
-                <template #title>Workspace</template>
-                <el-menu-item index="2-1">item one</el-menu-item>
-                <el-menu-item index="2-2">item two</el-menu-item>
-                <el-menu-item index="2-3">item three</el-menu-item>
-                <el-sub-menu index="2-4">
-                    <template #title>item four</template>
-                    <el-menu-item index="2-4-1">item one</el-menu-item>
-                    <el-menu-item index="2-4-2">item two</el-menu-item>
-                    <el-menu-item index="2-4-3">item three</el-menu-item>
-                </el-sub-menu>
-            </el-sub-menu>
-            <el-menu-item index="3" disabled>Info</el-menu-item>
-            <el-menu-item index="4">Orders</el-menu-item>
+            <el-menu-item index="1">Personal</el-menu-item>
+            <el-menu-item index="2">sharedWorking Center</el-menu-item>
+            <el-menu-item index="3" disabled>Manager</el-menu-item>
         </div>
 
         <div class='endbasic'>
-            <el-menu-item index="5">{{ wordCount.wordCount+"word" }}</el-menu-item>
+            <el-menu-item index="4">{{ wordCount.wordCount+"word" }}</el-menu-item>
             <span></span>
-            <el-menu-item index="6" @click="login">{{ userStore.userAccount }}</el-menu-item>
+            <el-menu-item index="5" @click="login">{{ userStore.userAccount }}</el-menu-item>
         </div>
     </el-menu>
 </template>

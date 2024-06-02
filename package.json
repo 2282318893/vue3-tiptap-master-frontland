@@ -48,6 +48,7 @@
   ],
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "less": "^4.2.0",
     "openapi-typescript-codegen": "^0.29.0",
     "prettier": "3.2.5",
     "vite": "^5.1.6"
